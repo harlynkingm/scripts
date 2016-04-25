@@ -8,7 +8,7 @@ const util = require("util");
 const moment = require("moment");
 const exec = require('child_process').exec;
 //const movieObj = require(`${__dirname}/../../data/js/movieObj`);
-const movieObj = require(`./movieObj2`);
+const movieObj = require(`./final_movies`);
   
 
 var startTime = moment();
