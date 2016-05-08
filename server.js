@@ -72,7 +72,7 @@ function cleanURL(url) {
 async.series({
 getListOfDownloadedScripts: (cb) => {
   
-  var folders = ["pdf", "text"];
+  var folders = ["pdf", "html"];
 
   async.forEachSeries(folders, (folder, cb1) => {
     var downloadDir = `${__dirname}/data/script_downloads/${folder}/`;
@@ -144,7 +144,7 @@ iterateMovies: (cb) => {
       console.log(movie.source)
       index++;
 
-      if (movie.source === "imsdb") {
+      if (movie.source === "xxx") {
         fs.readFile(`${__dirname}/data/${movie.link}`, "utf8", (err, data) => {
           if(err){
             async.setImmediate(() => { cb1(); });
@@ -173,7 +173,7 @@ iterateMovies: (cb) => {
           }
          
         })
-      } else if (movie.source === "cornell"){
+      } else if (movie.source === "imsdb"){
 
 
           request.get({url: url, encoding: "binary", timeout: 120000}, (err, resp, body) => {
@@ -213,7 +213,7 @@ iterateMovies: (cb) => {
 
                   if(matchedUrl){
                     
-                    fs.writeFile(`${__dirname}/data/script_downloads/text/scrape-${scrape_id}.txt`, $(body).text());
+                    fs.writeFile(`${__dirname}/data/script_downloads/html/scrape-${scrape_id}.txt`, $(body).html());
                     async.setImmediate(() => { cb1(); })
                     
 
